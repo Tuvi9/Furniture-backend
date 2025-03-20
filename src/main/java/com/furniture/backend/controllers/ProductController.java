@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furniture.backend.models.Product;
+import com.furniture.backend.models.Furniture;
 import com.furniture.backend.repositories.ProductRepository;
 
 @RestController
@@ -42,10 +42,10 @@ public class ProductController {
     public ResponseEntity<Map<String, Object>> createSampleProduct() {
         Map<String, Object> response = new HashMap<>();
         try {
-            Product product = new Product();
+            Furniture product = new Furniture();
             product.setName("Chair");
             
-            Product savedProduct = productRepository.save(product);
+            Furniture savedProduct = productRepository.save(product);
             
             response.put("success", true);
             response.put("message", "Sample product created!");
