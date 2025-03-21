@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 // Makes sure its mapped to a database table
@@ -32,11 +30,7 @@ public class Furniture {
     private String description;
 
     @Column(nullable=false)
-    private Boolean favourite;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private String category;
 
     @Column(name = "user_id", nullable = false, columnDefinition = "uuid")
     private UUID userId;
@@ -63,11 +57,7 @@ public class Furniture {
         return description;
     }
 
-    public Boolean getFavourite() {
-        return favourite;
-    }
-
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -80,7 +70,7 @@ public class Furniture {
         this.name = name;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -94,9 +84,5 @@ public class Furniture {
     
     public void setDescription(String description) {
         this.description = description;
-    }
-    
-    public void setFavourite(Boolean favourite) {
-        this.favourite = favourite;
     }
 }
