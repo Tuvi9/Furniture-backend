@@ -35,6 +35,9 @@ public class Furniture {
     @Column(name = "user_id", nullable = false, columnDefinition = "uuid")
     private UUID userId;
 
+    @Column(name = "image_url", nullable = true)
+    private String imageUrl;
+
     
     // Default constructor
     public Furniture() {
@@ -65,6 +68,10 @@ public class Furniture {
         return userId;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
     // Setters
     public void setName(String name) {
         this.name = name;
@@ -84,5 +91,9 @@ public class Furniture {
     
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

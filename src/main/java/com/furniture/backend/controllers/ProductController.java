@@ -51,6 +51,11 @@ public class ProductController {
 
             furniture.setUserId(UUID.fromString("bfa0b156-4692-479b-a026-e07eae27002a"));
             
+            // Set image URL if provided
+            if (RequestData.containsKey("imageUrl")) {
+                furniture.setImageUrl((String) RequestData.get("imageUrl"));
+            }
+            
             // Save to database
             Furniture savedFurniture = productRepository.save(furniture);
             
